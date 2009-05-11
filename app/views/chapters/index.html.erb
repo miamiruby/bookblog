@@ -1,0 +1,30 @@
+<h1>Listing chapters</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Teaser</th>
+    <th>Body</th>
+    <th>Position</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+
+<% @chapters.each do |chapter| %>
+  <tr>
+    <td><%=h chapter.title %></td>
+    <td><%=h chapter.teaser %></td>
+    <td><%=h chapter.body %></td>
+    <td><%=h chapter.position %></td>
+    <td><%=h chapter.created_at %></td>
+    <td><%=h chapter.updated_at %></td>
+    <td><%= link_to 'Show', chapter %></td>
+    <td><%= link_to 'Edit', edit_chapter_path(chapter) %></td>
+    <td><%= link_to 'Destroy', chapter, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New chapter', new_chapter_path %>

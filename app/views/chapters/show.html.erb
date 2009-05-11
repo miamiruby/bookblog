@@ -1,0 +1,33 @@
+<p>
+  <b>Title:</b>
+  <%=h @chapter.title %>
+</p>
+
+<p>
+  <b>Teaser:</b>
+  <%=h @chapter.teaser %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @chapter.body %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @chapter.position %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @chapter.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @chapter.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
+<%= link_to 'Back', chapters_path %>
