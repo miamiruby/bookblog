@@ -1,33 +1,16 @@
-<p>
-  <b>Title:</b>
-  <%=h @chapter.title %>
-</p>
-
-<p>
-  <b>Teaser:</b>
-  <%=h @chapter.teaser %>
-</p>
-
-<p>
-  <b>Body:</b>
-  <%=h @chapter.body %>
-</p>
-
-<p>
-  <b>Position:</b>
-  <%=h @chapter.position %>
-</p>
-
-<p>
-  <b>Created at:</b>
-  <%=h @chapter.created_at %>
-</p>
-
-<p>
-  <b>Updated at:</b>
-  <%=h @chapter.updated_at %>
-</p>
-
+<h2>
+	<div class="chapter_position"><%=h @chapter.position -%></div>
+	<%=h @chapter.title -%>
+</h2>
+<p><%= textilize(@chapter.teaser) %></p>
+<p><%= textilize(@chapter.body) %></p>
 
 <%= link_to 'Edit', edit_chapter_path(@chapter) %> |
 <%= link_to 'Back', chapters_path %>
+
+<% if @chapter.versions.count > 1 %>
+	<h2>Previous Revisions</h2>
+	<% @chapter.versions.each do |version| %>
+		<%= link_to version.version, chapter_revision_path(@chapter, version.id)  %>
+	<% end %>
+<% end %>

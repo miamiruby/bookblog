@@ -2,7 +2,7 @@ class ChaptersController < ApplicationController
   # GET /chapters
   # GET /chapters.xml
   def index
-    @chapters = Chapter.all
+    @chapters = Chapter.find_by_ascending
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,0 +1,7 @@
+<%= debug(@me) %>
+
+<p>Note: The newest version of this chapter can be found <%= link_to "here", chapter_path(@version.chapter.id) %></p>
+<%= @version.position %> <%= @version.title %> version: <%= @version.version %>
+<p><%= textilize(@version.teaser) %></p>
+<p><%= textilize(@version.body) %></p>
+
