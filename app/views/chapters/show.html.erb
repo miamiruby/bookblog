@@ -8,9 +8,18 @@
 <%= link_to 'Edit', edit_chapter_path(@chapter) %> |
 <%= link_to 'Back', chapters_path %>
 
-<% if @chapter.versions.count > 1 %>
+<% if @chapter.has_revisions? %>
 	<h2>Previous Revisions</h2>
 	<% @chapter.versions.each do |version| %>
 		<%= link_to version.version, chapter_revision_path(@chapter, version.id)  %>
 	<% end %>
 <% end %>
+<% if @chapter.has_comments? %>
+<h3>Comments</h3>
+<%= render  :partial => "comments/comment",
+             :collection => @chapter.comments %>
+
+<% end %>
+<h3>Add a Comment!</h3>
+<%= render :partial => 'comments/form' %>
+
